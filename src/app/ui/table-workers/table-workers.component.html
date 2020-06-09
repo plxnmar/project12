@@ -1,0 +1,30 @@
+<ng-container *ngIf="workers.length > 0">
+  <div class="row">
+    <div class="col-12">
+      <h5>{{ title }}</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" [style.width]="'100px'">#</th>
+            <th scope="col" [style.width]="'40%'">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col" [style.width]="'250px'"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let worker of workers">
+            <th scope="row">{{ worker.id }}</th>
+            <td>{{ worker.name }}</td>
+            <td>{{ worker.surname }}</td>
+            <td>
+              <div  class ="row">
+                <button style = "margin-right: 40px;" class="btn btn-outline-danger btn-sm"(click)="onDeleteWorker(worker.id)">Удалить</button>
+                <app-editform-worker [worker]="worker"></app-editform-worker> <!--  -->
+            </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</ng-container>
